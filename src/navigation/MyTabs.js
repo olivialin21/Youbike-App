@@ -1,14 +1,11 @@
 import React from 'react';
 import { useTheme } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from '../components/Icon.js'
 import { useColorMode } from 'native-base';
 
-import NullScreen from '../screens/NullScreen';
-import ActionButton from '../components/ActionButton';
-
-import { HomeStack, SettingsStack } from './MyStacks';
-
+// import NullScreen from '../screens/NullScreen';
+import { RentStack, ReturnStack, StarStack, SettingsStack } from './MyStacks';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,28 +17,46 @@ export const MyTabs = () => {
     <Tab.Navigator
       initialRouteName="HomeStack"
       screenOptions={{
-        tabBarInactiveTintColor: colorMode == 'light' ? colors.light500 : 'gray',
-        tabBarActiveTintColor: colorMode == 'light' ? colors.primary700 : 'white',
-        tabBarStyle: { backgroundColor: colorMode == 'light' ? 'white' : 'black' },
+        tabBarInactiveTintColor: colorMode == 'light' ? 'white' : colors.black1 ,
+        tabBarActiveTintColor: colorMode == 'light' ? colors.yellow2 : 'white',
+        tabBarStyle: { backgroundColor: colorMode == 'light' ? colors.gray2 : colors.gray1 },
+        tabBarLabelStyle: {
+          fontSize: 14
+        },
         // headerShown: false
       }}
     >
       <Tab.Screen
-        name="HomeStack"
-        component={HomeStack}
+        name="RentStack"
+        component={RentStack}
         options={{
           headerShown: false,
-          title: "Home",
+          title: "借車",
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />
+            <Icon icon="rentBike" color={color} size={26} />
           ),
         }}
       />
       <Tab.Screen
-        name="ActionButton"
-        component={NullScreen}
+        name="ReturnStack"
+        component={ReturnStack}
         options={{
-          tabBarButton: () => <ActionButton />
+          headerShown: false,
+          title: "還車",
+          tabBarIcon: ({ color }) => (
+            <Icon icon="returnBike" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="StarStack"
+        component={StarStack}
+        options={{
+          headerShown: false,
+          title: "收藏",
+          tabBarIcon: ({ color }) => (
+            <Icon icon="starBike" color={color} size={26} />
+          ),
         }}
       />
       <Tab.Screen
@@ -49,13 +64,9 @@ export const MyTabs = () => {
         component={SettingsStack}
         options={{
           headerShown: false,
-          title: "Settings",
-          headerTitleStyle: {
-            fontWeight: '400',
-            fontSize: 20
-          },
+          title: "設定",
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="cog" color={color} size={26} />
+            <Icon icon="setting" color={color} size={26} />
           ),
         }}
       />
