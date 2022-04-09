@@ -26,7 +26,7 @@ const Navigation = () => {
   return (
     <NativeBaseProvider theme={customTheme}>
       <KeyboardAvoidingView
-        keyboardVerticalOffset={Platform.select({ios: 0, android: -500})}
+        keyboardVerticalOffset={Platform.select({ ios: 0, android: -500 })}
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         flex={1}
       >
@@ -40,7 +40,7 @@ const Navigation = () => {
             <MyDrawer />
           }
         </NavigationContainer>
-      </KeyboardAvoidingView>      
+      </KeyboardAvoidingView>
     </NativeBaseProvider>
 
   );

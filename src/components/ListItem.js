@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, HStack, Pressable } from "native-base";
-import AntDesign from "react-native-vector-icons/AntDesign";
+// import AntDesign from "react-native-vector-icons/AntDesign";
 
 const ListItem = ({ title, navigation, destination }) => {
   return (
@@ -23,7 +23,7 @@ const ListItem = ({ title, navigation, destination }) => {
         justifyContent="space-between"
       >
         <Text fontSize={16}>{title}</Text>
-        <AntDesign name="right" color="gray" size={16} />
+        {/* <AntDesign name="right" color="gray" size={16} /> */}
       </HStack>
     </Pressable>
   );
