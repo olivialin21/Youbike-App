@@ -6,12 +6,9 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { useColorMode } from 'native-base';
 
 import AlbumScreen from '../screens/AlbumScreen';
-import DetailScreen from '../screens/DetailScreen';
+import ReturnScreen from '../screens/ReturnScreen';
+import StarScreen from '../screens/StarScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import DisplaySettingScreen from '../screens/DisplaySettingScreen';
-import AccountSettingScreen from '../screens/AccountSettingScreen';
-
-import albumData from "../json/albums.json";
 
 const Stack = createNativeStackNavigator();
 
@@ -59,7 +56,7 @@ export const ReturnStack = ({ navigation }) => {
     <Stack.Navigator >
       <Stack.Screen
         name="return"
-        component={AlbumScreen}
+        component={ReturnScreen}
         options={{
           title: "還車",
           headerStyle: {
@@ -95,7 +92,7 @@ export const StarStack = ({ navigation }) => {
     <Stack.Navigator >
       <Stack.Screen
         name="star"
-        component={AlbumScreen}
+        component={StarScreen}
         options={{
           title: "收藏",
           headerStyle: {
@@ -155,39 +152,6 @@ export const SettingsStack = ({ navigation }) => {
           ),
         }}
       />
-      <Stack.Screen
-        name="DisplaySetting"
-        component={DisplaySettingScreen}
-        options={{
-          title: "Display",
-          headerTintColor: colorMode == 'light' ? 'black' : 'white',
-          headerStyle: {
-            backgroundColor: colorMode == 'light' ? colors.yellow2 : colors.gray2,
-          },
-          headerTitleStyle: {
-            color: colorMode == 'light' ? 'black' : 'white',
-            fontWeight: '400',
-            fontSize: 20
-          },
-        }}
-      />
-      <Stack.Screen
-        name="AccountSetting"
-        component={AccountSettingScreen}
-        options={{
-          title: "Account",
-          headerTintColor: colorMode == 'light' ? 'black' : 'white',
-          headerStyle: {
-            backgroundColor: colorMode == 'light' ? colors.yellow2 : colors.gray2,
-          },
-          headerTitleStyle: {
-            color: colorMode == 'light' ? 'black' : 'white',
-            fontWeight: '400',
-            fontSize: 20
-          },
-        }}
-      />
-
     </Stack.Navigator>
   );
 }

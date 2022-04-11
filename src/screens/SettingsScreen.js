@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useTheme } from '@react-navigation/native';
 import { Box, HStack, Text, Switch, useColorMode } from "native-base";
 import { useDispatch } from "react-redux";
-import { setColorMode, setSearchFilter } from '../redux/actions/settingsActions';
+import { setColorMode, setLanguage, setSearchFilter } from '../redux/actions/settingsActions';
 
 const SettingsScreen = ({ navigation }) => {
   const { colors } = useTheme();
@@ -18,21 +18,23 @@ const SettingsScreen = ({ navigation }) => {
     else dispatch(setColorMode("light"))
     toggleColorMode();
   }
-  const onToggleLanguage = () => {
+  const onToggleLanguage = async () => {
+    dispatch(setLanguage(!language))
     toggleLanguage(!language);
   }
   const onToggleYoubike1 = () => {
+    dispatch(setSearchFilter("youbike 1.0",!filter1))
     toggleFilter1(!filter1);
-    dispatch(setSearchFilter("youbike 1.0",filter1))
   }
   const onToggleYoubike2 = () => {
+    dispatch(setSearchFilter("youbike 2.0",!filter2))
     toggleFilter2(!filter2);
-    dispatch(setSearchFilter("youbike 2.0",filter2))
   }
   const onToggleCantUse = () => {
+    dispatch(setSearchFilter("can't use",!filterCantUse))
     toggleFilterCantUse(!filterCantUse);
-    dispatch(setSearchFilter("can't use",filterCantUse))
   }
+
   return (
     <Box
       flex={1}
