@@ -7,8 +7,7 @@ import { useSelector } from "react-redux";
 const ReturnScreen = ({ navigation }) => {
   const { colors } = useTheme();
   const { region } = useSelector((state) => (state.map.region));
-  console.log(region)
-
+  
   return (
     <Box
     flex={1}

@@ -8,7 +8,6 @@ const initialState = {
   starList: []
 };
 let StarList = [];
-console.log(initialState.starList)
 
 export const bikeReducer = (state = initialState, action) => {
   switch (action.type) {

@@ -5,7 +5,7 @@ import { useTheme } from '@react-navigation/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useColorMode } from 'native-base';
 
-import AlbumScreen from '../screens/AlbumScreen';
+import RentScreen from '../screens/RentScreen';
 import ReturnScreen from '../screens/ReturnScreen';
 import StarScreen from '../screens/StarScreen';
 import SettingsScreen from '../screens/SettingsScreen';
@@ -22,7 +22,7 @@ export const RentStack = ({ navigation }) => {
     <Stack.Navigator >
       <Stack.Screen
         name="Rent"
-        component={AlbumScreen}
+        component={RentScreen}
         options={{
           title: "借車",
           headerStyle: {
