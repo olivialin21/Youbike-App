@@ -1,21 +1,35 @@
 import React from "react";
 import { Image, Box, Text, HStack, Pressable } from "native-base";
-// import AntDesign from "react-native-vector-icons/AntDesign";
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import { useTheme } from '@react-navigation/native';
+import { useDispatch } from "react-redux";
 
 const StarItem = ({ data, navigation }) => {
+  const dispatch = useDispatch();
+  const { colors } = useTheme();
 
   return (
     <Pressable 
     //  onPress={() => navigation.navigate('Detail', album)}
     >
       <Box 
-        marginTop={3}
+        paddingTop={4}
         paddingX={6}
       >
         <HStack 
           justifyContent={"space-between"}
+          alignItems={"center"}
         >
-          <Text fontSize={20}>{data.StationName.zh_tw}</Text>
+          <HStack
+            alignItems={"center"}
+          >
+            <Pressable 
+             onPress={() => onRemoveStar(data.StatinUID)}
+            >
+              <FontAwesomeIcon name="star" color={colors.yellow2} size={20} />    
+            </Pressable>
+            <Text fontSize={20} marginLeft={2}>{data.StationName.zh_tw}</Text>
+          </HStack>
           <Text fontSize={20}>{data.Distance}m</Text>
         </HStack>
         <HStack 
