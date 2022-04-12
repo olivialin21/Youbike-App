@@ -3,14 +3,21 @@ import { Image, Box, Text, HStack, Pressable } from "native-base";
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import { useTheme } from '@react-navigation/native';
 import { useDispatch } from "react-redux";
+import { setStarList } from '../redux/actions/bikeActions'
 
 const StarItem = ({ data, navigation }) => {
   const dispatch = useDispatch();
   const { colors } = useTheme();
 
+  const onRemoveStar = (id) => {
+    dispatch(setStarList(id,"remove"))
+  }
+
   return (
     <Pressable 
-    //  onPress={() => navigation.navigate('Detail', album)}
+      onPress={() => {
+        // navigation.navigate('Detail', album)}
+      }}
     >
       <Box 
         paddingTop={4}
@@ -24,7 +31,7 @@ const StarItem = ({ data, navigation }) => {
             alignItems={"center"}
           >
             <Pressable 
-             onPress={() => onRemoveStar(data.StatinUID)}
+             onPress={() => onRemoveStar(data.StationUID)}
             >
               <FontAwesomeIcon name="star" color={colors.yellow2} size={20} />    
             </Pressable>

@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { useTheme } from '@react-navigation/native';
 import { Box } from "native-base";
 import MapView from 'react-native-maps';
+import { useSelector } from "react-redux";
 
 const ReturnScreen = ({ navigation }) => {
   const { colors } = useTheme();
+  const region = useSelector((state) => (state.map.region));
+  console.log(region)
 
   return (
     <Box
@@ -13,8 +16,9 @@ const ReturnScreen = ({ navigation }) => {
     _light={{ bg: "white" }}
     >
       <MapView 
-        mapType="mutedStandard"
+        region={region}
         flex={1}
+        provider="google"
       />
   </Box>
   );
