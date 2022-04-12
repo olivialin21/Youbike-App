@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { setColorMode, setLanguage, setSearchFilter } from '../redux/actions/settingsActions';
 
 const SettingsScreen = ({ navigation }) => {
-  const { colors } = useTheme();
+  const { colors, fontSizes } = useTheme();
   const { colorMode, toggleColorMode } = useColorMode();
   const [ language, toggleLanguage ] = useState(false);
   const [ filter1, toggleFilter1 ] = useState(false);
@@ -42,12 +42,12 @@ const SettingsScreen = ({ navigation }) => {
       _light={{ bg: "white" }}
     >
       <HStack
-        height={65}
-        px={8}
+        height={50}
+        px="4"
         justifyContent="space-between"
         alignItems="center"
       >
-        <Text fontSize={20}>夜間模式</Text>
+        <Text fontSize={fontSizes.body1}>夜間模式</Text>
         <Switch
             name="light Mode"
             isChecked={colorMode === "dark"}
@@ -58,12 +58,12 @@ const SettingsScreen = ({ navigation }) => {
         />
       </HStack>
       <HStack
-        height={65}
-        px={8}
+        height={50}
+        px="4"
         justifyContent="space-between"
         alignItems="center"
       >
-        <Text fontSize={20}>{language == true ? "中文" : "English"}</Text>
+        <Text fontSize={fontSizes.body1}>{language == true ? "中文" : "English"}</Text>
         <Switch
             name="language"
             isChecked={language === true}
@@ -76,18 +76,20 @@ const SettingsScreen = ({ navigation }) => {
       <Box
         borderTopWidth={1}
         borderTopColor={colors.gray1}
-        px={8}
-        paddingTop={3}
+        mx="4"
+        paddingTop={2}
+        marginTop={2}
       >
         <Text fontSize={14} color={colors.yellow2}>搜尋篩選</Text>
       </Box>
       <HStack
-        height={65}
-        px={8}
+        height={50}
+        marginTop={2}
+        px="4"
         justifyContent="space-between"
         alignItems="center"
       >
-        <Text fontSize={20}>Youbike 1.0</Text>
+        <Text fontSize={fontSizes.body1}>Youbike 1.0</Text>
         <Switch
             name="Youbike 1.0"
             isChecked={filter1 === true}
@@ -98,12 +100,12 @@ const SettingsScreen = ({ navigation }) => {
         />
       </HStack>
       <HStack
-        height={65}
-        px={8}
+        height={50}
+        px="4"
         justifyContent="space-between"
         alignItems="center"
       >
-        <Text fontSize={20}>Youbike 2.0</Text>
+        <Text fontSize={fontSizes.body1}>Youbike 2.0</Text>
         <Switch
             name="light Mode"
             isChecked={filter2 === true}
@@ -114,12 +116,12 @@ const SettingsScreen = ({ navigation }) => {
         />
       </HStack>
       <HStack
-        height={65}
-        px={8}
+        height={50}
+        px="4"
         justifyContent="space-between"
         alignItems="center"
       >
-        <Text fontSize={20}>無法租借</Text>
+        <Text fontSize={fontSizes.body1}>無法租借</Text>
         <Switch
             name="light Mode"
             isChecked={filterCantUse === true}

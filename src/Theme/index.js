@@ -14,5 +14,9 @@ const MyTheme = {
     gray2: '#666666',
     black1: '#212121',
   },
+  fontSizes: {
+    title1: 20,
+    body1: 16,
+  }
 };
 export default MyTheme;
