@@ -1,8 +1,11 @@
 import React from "react";
+import { useTheme } from '@react-navigation/native';
 import { Text, HStack, Pressable } from "native-base";
-// import AntDesign from "react-native-vector-icons/AntDesign";
+import AntDesign from "react-native-vector-icons/AntDesign";
 
 const ListItem = ({ title, navigation, destination }) => {
+  const { colors, fontSizes } = useTheme();
+
   return (
     <Pressable
       onPress={() => {
@@ -10,20 +13,14 @@ const ListItem = ({ title, navigation, destination }) => {
       }}
     >
       <HStack
-        _dark={{
-          bg: "blueGray.900",
-          borderColor: "blueGray.500",
-          borderButtomWidth: 0.6,
-        }}
-        _light={{ bg: "white" }}
-        px="4"
-        py="4"
-        borderTopWidth={1}
-        borderColor="lightgray"
+        borderButtomWidth={1}
+        height={50}
+        mx="4"
         justifyContent="space-between"
+        alignItems="center"
       >
-        <Text fontSize={16}>{title}</Text>
-        {/* <AntDesign name="right" color="gray" size={16} /> */}
+        <Text fontSize={fontSizes.body1}>{title}</Text>
+        <AntDesign name="right" color="gray" size={20} />
       </HStack>
     </Pressable>
   );
