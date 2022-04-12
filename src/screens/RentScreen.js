@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setRegion } from "../redux/actions/mapActions";
 
 const RentScreen = ({ navigation }) => {
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
   const region = useSelector((state) => (state.map.region));
   console.log(region)
   const onRegionChangeComplete = (rgn) => {

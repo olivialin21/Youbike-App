@@ -7,7 +7,7 @@ const initialState = {
     longitude: 121.544637,
     latitude: 25.024624,
     longitudeDelta: 0.01,
-    latitudeDelta: 0.02
+    latitudeDelta: 0.02,
   }
 };
 
