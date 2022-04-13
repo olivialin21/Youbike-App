@@ -42,7 +42,6 @@ export const settingsReducer = (state = initialState, action) => {
         }
       };
     case SET_LANGUAGE:
-      console.log(action.payload)
       return {
         ...state,
         language: action.payload

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Platform } from "react-native";
 import { useTheme } from '@react-navigation/native';
-import { Box, Image } from "native-base";
+import { useColorMode, Box, Image } from "native-base";
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from "expo-location";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,6 +9,7 @@ import { setBikeStations, setRegion } from "../redux/actions/mapActions";
 import { Icon } from 'react-native-elements'
 
 const Map = ({ method }) => {
+  const { colorMode } = useColorMode();
   const dispatch = useDispatch();
   const filter = useSelector((state) => (state.settings.search.filter));
   const bikeStations = useSelector((state) => (state.map.bikeStations));
@@ -22,10 +24,11 @@ const Map = ({ method }) => {
   });
 
   useEffect (() => {
-    dispatch(setBikeStations(filter))
+    dispatch(setBikeStations(region))
   },[])
   useEffect (() => {
     setRegionNow(region);
+    dispatch(setBikeStations(region))
   },[region])
 
   const setRegionAndMarker = (location) => {
@@ -74,7 +77,9 @@ const Map = ({ method }) => {
         }}
         region={regionNow}
         flex={1}
-        provider="google"
+        mapType="mutedStandard"
+        // provider="google"
+        userInterfaceStyle={colorMode == "light" ? "light" : "dark"}
         onRegionChangeComplete={onRegionChangeComplete}
       >
         <Marker
@@ -99,7 +104,7 @@ const Map = ({ method }) => {
           >
             <Image
               alt="bikeIcon"
-              source={require("../images/btn_1.png")}
+              source={station.ServiceType == 1 ? require("../images/btn_1.png") : require("../images/btn_2.png")}
               style={{ width: 26, height: 28 }}
               resizeMode="contain"
             />
