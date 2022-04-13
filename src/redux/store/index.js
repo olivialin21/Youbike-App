@@ -5,7 +5,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 
 import { accountReducer } from "./accountReducer";
 import { settingsReducer } from "./settingsReducer";
-import { bikeReducer } from "./bikeReducer";
+import { starReducer } from "./starReducer";
 import { mapReducer } from "./mapReducer";
 
 const persistConfig = {
@@ -16,7 +16,7 @@ const persistConfig = {
 const reducer = combineReducers({
   account: persistReducer(persistConfig, accountReducer),
   settings: persistReducer(persistConfig, settingsReducer),
-  bike: persistReducer(persistConfig, bikeReducer),
+  star: persistReducer(persistConfig, starReducer),
   map: persistReducer(persistConfig, mapReducer)
 });
 

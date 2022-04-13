@@ -9,7 +9,7 @@ import StarData from '../json/starList.json';
 const StarScreen = ({ navigation }) => {
   const { colors } = useTheme();
   const dispatch = useDispatch();
-  const data = useSelector((state) => (state.bike.starList));
+  const data = useSelector((state) => (state.star.starList));
   console.log(data)
   useEffect (() => {
     dispatch(setStarScreen())

@@ -3,6 +3,7 @@ import {
 } from "../constants";
 
 const initialState = {
+  bikeStation: [],
   region: {
     longitude: 121.544637,
     latitude: 25.024624,

@@ -9,7 +9,7 @@ const initialState = {
 };
 let StarList = [];
 
-export const bikeReducer = (state = initialState, action) => {
+export const starReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_STAR_SCREEN:
       return {
