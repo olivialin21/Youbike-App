@@ -14,6 +14,7 @@ const initialState = {
 export const mapReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_REGION:
+      console.log(action.payload)
       return {
         ...state,
         region: { ...action.payload }
