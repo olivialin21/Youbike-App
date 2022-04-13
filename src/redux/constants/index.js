@@ -13,3 +13,4 @@ export const REMOVE_STAR = 'REMOVE_STAR';
 
 // SET MAP
 export const SET_REGION = 'SET_REGION';
+export const SET_BIKE_STATIONS = 'SET_BIKE_STATIONS';

@@ -4,7 +4,7 @@ import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import AntDesign from "react-native-vector-icons/AntDesign";
 import { useTheme } from '@react-navigation/native';
 import { useDispatch } from "react-redux";
-import { setStarList } from '../redux/actions/bikeActions'
+import { setStarList } from '../redux/actions/starActions'
 
 const StarItem = ({ data, navigation }) => {
   const dispatch = useDispatch();

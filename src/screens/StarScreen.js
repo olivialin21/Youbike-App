@@ -3,8 +3,7 @@ import { useTheme } from '@react-navigation/native';
 import { Box } from "native-base";
 import { useDispatch, useSelector } from "react-redux";
 import StarList from '../components/StarList';
-import { setStarScreen } from '../redux/actions/bikeActions'
-import StarData from '../json/starList.json';
+import { setStarScreen } from '../redux/actions/starActions'
 
 const StarScreen = ({ navigation }) => {
   const { colors } = useTheme();
