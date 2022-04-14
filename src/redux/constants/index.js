@@ -10,6 +10,7 @@ export const REMOVE_SEARCH_FILTER = 'REMOVE_SEARCH_FILTER';
 // STAR SCREEN
 export const SET_STAR_SCREEN = 'SET_STAR_SCREEN';
 export const REMOVE_STAR = 'REMOVE_STAR';
+export const ADD_STAR = 'ADD_STAR';
 
 // SET MAP
 export const SET_REGION = 'SET_REGION';

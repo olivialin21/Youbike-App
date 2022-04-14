@@ -9,10 +9,9 @@ const StarScreen = ({ navigation }) => {
   const { colors } = useTheme();
   const dispatch = useDispatch();
   const data = useSelector((state) => (state.star.starList));
-  console.log(data)
-  useEffect (() => {
-    dispatch(setStarScreen())
-  },[])
+  // useEffect (() => {
+  //   dispatch(setStarScreen())
+  // },[data])
 
   return (
     <Box

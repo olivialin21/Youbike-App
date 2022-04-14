@@ -15,17 +15,9 @@ const getAuthorizationHeader = function() {
 	return { 'Authorization': Authorization, 'X-Date': GMTString};
 }
 
-// export const getBikeStations = async (filter) => {
-//   return await axios.get(`https://ptx.transportdata.tw/MOTC/v2/Bike/Station/NearBy?%24spatialFilter=nearby(25.047675%2C%20121.517055%2C%201000)&%24format=JSON`,
-//     {
-//       headers: getAuthorizationHeader()
-//     }
-//   )
-// }
-
-export const getBikeStations = async (location) => {
-   return await axios.get(`https://ptx.transportdata.tw/MOTC/v2/Bike/Station/NearBy?%24spatialFilter=nearby(${location.latitude}%2C%20${location.longitude}%2C%20500)&%24format=JSON`,
-   {
-      headers:getAuthorizationHeader()
-   });
+export const getBikeStations = async ( location, filter ) => {
+  return await axios.get(`https://ptx.transportdata.tw/MOTC/v2/Bike/Station/NearBy?%24spatialFilter=nearby(${location.latitude}%2C%20${location.longitude}%2C%20250)&%24format=JSON`,
+  {
+     headers:getAuthorizationHeader()
+  });
 }

@@ -10,8 +10,8 @@ const StarItem = ({ data, navigation }) => {
   const dispatch = useDispatch();
   const { colors, fontSizes } = useTheme();
 
-  const onRemoveStar = (id) => {
-    dispatch(setStarList(id,"remove"))
+  const onRemoveStar = (data) => {
+    dispatch(setStarList(data,"remove"))
   }
 
   return (
@@ -26,7 +26,7 @@ const StarItem = ({ data, navigation }) => {
       >
         <Pressable
           paddingTop={0.5}
-          onPress={() => onRemoveStar(data.StationUID)}
+          onPress={() => onRemoveStar(data)}
         >
           <FontAwesomeIcon name="star" color={colors.yellow2} size={20} />    
         </Pressable>

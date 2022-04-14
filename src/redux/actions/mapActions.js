@@ -14,8 +14,8 @@ export const setRegion = (region) => async (dispatch) => {
   })
 }
 
-export const setBikeStations = (location) => async (dispatch) => {
-  let bikeStations = await getBikeStations(location);
+export const setBikeStations = (location, filter) => async (dispatch) => {
+  let bikeStations = await getBikeStations(location, filter);
   dispatch({
     type: SET_BIKE_STATIONS,
     payload: bikeStations.data

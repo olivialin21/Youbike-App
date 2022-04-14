@@ -8,9 +8,9 @@ const SettingsScreen = ({ navigation }) => {
   const { colors, fontSizes } = useTheme();
   const { colorMode, toggleColorMode } = useColorMode();
   const [ language, toggleLanguage ] = useState(false);
-  const [ filter1, toggleFilter1 ] = useState(false);
-  const [ filter2, toggleFilter2 ] = useState(false);
-  const [ filterCantUse, toggleFilterCantUse ] = useState(false);
+  const [ filter1, toggleFilter1 ] = useState(true);
+  const [ filter2, toggleFilter2 ] = useState(true);
+  const [ filterCantUse, toggleFilterCantUse ] = useState(true);
   const dispatch = useDispatch();
   
   const onToggleColorMode = () => {

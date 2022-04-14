@@ -10,7 +10,7 @@ const initialState = {
     colorMode: 'light'
   },
   search: {
-    filter: [],  
+    filter: ["Youbike 1.0","Youbike 2.0","can't use"],  
   },
   language: "cn",
 };
@@ -34,6 +34,7 @@ export const settingsReducer = (state = initialState, action) => {
         }
       };
     case REMOVE_SEARCH_FILTER:
+      console.log(state.search.filter)
       searchFilterList = state.search.filter.filter((x) => x !== action.payload);
       return {
         ...state,
