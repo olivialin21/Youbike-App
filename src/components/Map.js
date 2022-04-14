@@ -17,7 +17,7 @@ const Map = ({ method }) => {
   const filter = useSelector((state) => (state.settings.search.filter));
   const bikeStations = useSelector((state) => (state.map.bikeStations));
   const region = useSelector((state) => (state.map.region));
-  const starList = useSelector((state) => (state.star.starList));
+  // const starList = useSelector((state) => (state.star.starList));
 
   const [star, toggleStar] = useState(false);
   const [detailShow, toggleDetail] = useState(false);
@@ -56,7 +56,6 @@ const Map = ({ method }) => {
       let location = await Location.getCurrentPositionAsync({});
       let locationAdd = {...location.coords, latitudeDelta: 0.005,longitudeDelta: 0.005}
       setRegionAndMarker(locationAdd);
-      dispatch(setRegion(locationAdd));
       setOnCurrentLocation(true);
     }
   };
