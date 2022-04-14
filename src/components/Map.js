@@ -24,14 +24,15 @@ const Map = ({ method }) => {
   const [stationDetail, setStationDetail] = useState({});
   const [regionNow, setRegionNow] = useState(region);
   const [onCurrentLocation, setOnCurrentLocation] = useState(false);
-  const [marker, setMarker] = useState({
-    coord: {
-      longitude: 121.544637,
-      latitude: 25.024624,
-    }
-  });
+  // const [marker, setMarker] = useState({
+  //   coord: {
+  //     longitude: 121.544637,
+  //     latitude: 25.024624,
+  //   }
+  // });
 
   useEffect (() => {
+    dispatch(setRegion(region));
     dispatch(setBikeStations(region,filter))
   },[])
   useEffect (() => {
@@ -41,13 +42,13 @@ const Map = ({ method }) => {
 
   const setRegionAndMarker = (location) => {
     dispatch(setRegion(location));
-    setMarker({
-      ...marker,
-      coord: {
-        longitude: location.longitude,
-        latitude: location.latitude,
-      },
-    });
+    // setMarker({
+    //   ...marker,
+    //   coord: {
+    //     longitude: location.longitude,
+    //     latitude: location.latitude,
+    //   },
+    // });
   };
 
   const getLocation = async () => {
@@ -73,6 +74,7 @@ const Map = ({ method }) => {
   return (
     <Box flex={1}>
       <MapView
+        showsUserLocation={true}
         initialRegion={{
           longitude: 121.544637,
           latitude: 25.024624,
@@ -91,7 +93,7 @@ const Map = ({ method }) => {
           radius={250}
           strokeColor={colorMode == "light" ? colors.gray2 : "white"}
         />
-        <Marker
+        {/* <Marker
           coordinate={{
             latitude: marker.coord.latitude,
             longitude: marker.coord.longitude
@@ -100,7 +102,7 @@ const Map = ({ method }) => {
           title="aa"
           description="aaa"
         >
-        </Marker>
+        </Marker> */}
         {bikeStations.map((station) => (
           <Marker
             coordinate={{

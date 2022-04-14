@@ -8,6 +8,7 @@ import { useColorMode } from 'native-base';
 import RentScreen from '../screens/RentScreen';
 import ReturnScreen from '../screens/ReturnScreen';
 import StarScreen from '../screens/StarScreen';
+import StarMapScreen from '../screens/StarMapScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import DisplaySettingsScreen from '../screens/DisplaySettingsScreen';
 import AccountSettingScreen from '../screens/AccountSettingScreen';
@@ -119,11 +120,11 @@ export const StarStack = ({ navigation }) => {
         }}
       />
       <Stack.Screen
-        name="starMap"
-        component={AccountSettingScreen}
-        options={{
+        name="StarMap"
+        component={StarMapScreen}
+        options={({ route }) => ({
           headerTintColor: colorMode == 'light' ? 'black' : 'white',
-          title: "帳號設定",
+          title: route.params.StationName.zh_tw,
           headerStyle: {
             backgroundColor: colorMode == 'light' ? colors.yellow2 : colors.gray2,
           },
@@ -132,7 +133,7 @@ export const StarStack = ({ navigation }) => {
             fontWeight: '400',
             fontSize: 20
           },
-        }}
+        })}
       />
     </Stack.Navigator>
   );

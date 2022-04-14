@@ -17,8 +17,8 @@ const StarItem = ({ data, navigation }) => {
   return (
     <Pressable 
       onPress={() => {
-        // navigation.navigate('Detail', album)}
-      }}
+        navigation.navigate('StarMap', data)}
+      }
     >
       <HStack
         paddingTop={4}
